@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-original-title="المساعد | وظف أفضل العمال لإنجاز أعمالك">
+      المساعد | وظف أفضل العمال لإنجاز أعمالك
+    </title>
+
+
+
+    <link rel="icon" href="{{ asset('frontend/images/brand.png') }}" type="image/x-icon" />
+    <link rel="stylesheet" href="{{ asset('frontend/style/normalize.css') }}" />
+    <link rel="stylesheet" href="{{ asset('frontend/style/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('frontend/style/all.min.css') }}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{{ asset('frontend/style/style.css') }}" />
+  </head>
+  <body onload="">
+    <!-- Start Loader -->
+    <div class="loader-container">
+      Loading
+      <div class="loader load-top"></div>
+      <div class="loader load-left"></div>
+    </div>
+    <!-- End Loader -->
+    <!-- Start Chatbot -->
+    <img class="chat-bot-btn" src="{{ asset('frontend/images/bot.jpg') }}" alt="chatBot" />
+    <div id="main">
+      <div class="exit"></div>
+      <h2>المساعد بوت</h2>
+      <div id="msg">
+        <div id="robot">
+          <div class="bot"></div>
+          <h3>بوتك المساعد</h3>
+        </div>
+        <div class="msgCon2">
+          <div class="left">السلام عليكم، كيف يمكن أن أساعدك</div>
+        </div>
+      </div>
+      <div class="chatbot-input">
+        <input type="text" id="msg_send" placeholder="New Message" />
+        <button class="chatbot-send" id="reply">
+          Send <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+    </div>
+    <!-- End Chatbot -->
+    <!-- Start Header -->
+    <header class="navbar p-0 pe-0 ps-2 ps-xl-5">
+      <div
+        class="col-12 d-flex justify-content-between align-items-center text-center p-0"
+      >
+        <div class="menu-btn drop text-light p-0 col-0" href="#">
+          <i class="fa-solid fa-bars drop"></i>
+        </div>
+        <a
+          class="logo d-md-flex d-none text-decoration-none text-light ms-5 me-xxl-3 me-2 col-0"
+          href="./index.html"
+          >المساعد</a
+        >
+        <a class="brand d-md-none d-flex col-0" href="./index.html">
+          <img src="{{ asset('frontend/images/brand.png') }}" alt="" />
+        </a>
+        <ul
+          class="navbar-nav p-0 me-xl-3 me-0 d-flex justify-content-between justify-content-md-center justify-content-sm-center align-items-center text-center flex-lg-row-reverse col-md-5 col-sm-4 col-0"
+          dir="ltr"
+        >
+          <a
+            href="./pages/add-work.html"
+            class="nav-item nav-link d-flex text-white align-items-center justify-content-center nav-p-12 me-xl-5 me-lg-0 col-xl-4 col-lg-5 col-6 d-lg-flex d-none"
+          >
+            أضف عملك <i class="fa-solid fa-plus ms-1"></i>
+          </a>
+          <a
+            class="nav-item nav-link text-light d-flex align-items-center justify-content-center col-xl-4 col-lg-5 col-6 d-xl-flex d-none"
+            href="./pages/search-about-worker.html"
+          >
+            ابحث عن عمال <i class="fa-brands fa-searchengin ms-1"></i>
+          </a>
+          <a
+            class="nav-item nav-link text-light d-flex align-items-center justify-content-center col-xl-4 col-lg-5 col-6 d-xl-flex d-none"
+            href="./pages/browse-business.html"
+          >
+            تصفح الأعمال <i class="fa-solid fa-boxes-stacked ms-1"></i
+          ></a>
+          <li
+            class="darkmode drop d-flex justify-content-center ms-md-5 ms-0 me-md-2 me-0"
+          >
+            <input
+              class="darkmode-toggle drop"
+              type="checkbox"
+              name=""
+              id="darkmode-toggle"
+            />
+            <label class="darkmode-label drop" for="darkmode-toggle">
+              <svg
+                version="1.1"
+                class="sun"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                enable-background="new 0 0 512 512"
+              >
+                <g>
+                  <g>
+                    <path
+                      d="m256,105.5c-83.9,0-152.2,68.3-152.2,152.2 0,83.9 68.3,152.2 152.2,152.2 83.9,0 152.2-68.3 152.2-152.2 0-84-68.3-152.2-152.2-152.2zm0,263.5c-61.4,0-111.4-50-111.4-111.4 0-61.4 50-111.4 111.4-111.4 61.4,0 111.4,50 111.4,111.4 0,61.4-50,111.4-111.4,111.4z"
+                    />
+                    <path
+                      d="m256,74.8c11.3,0 20.4-9.1 20.4-20.4v-23c0-11.3-9.1-20.4-20.4-20.4-11.3,0-20.4,9.1-20.4,20.4v23c2.84217e-14,11.3 9.1,20.4 20.4,20.4z"
+                    />
+                    <path
+                      d="m256,437.2c-11.3,0-20.4,9.1-20.4,20.4v22.9c0,11.3 9.1,20.4 20.4,20.4 11.3,0 20.4-9.1 20.4-20.4v-22.9c0-11.2-9.1-20.4-20.4-20.4z"
+                    />
+                    <path
+                      d="m480.6,235.6h-23c-11.3,0-20.4,9.1-20.4,20.4 0,11.3 9.1,20.4 20.4,20.4h23c11.3,0 20.4-9.1 20.4-20.4 0-11.3-9.1-20.4-20.4-20.4z"
+                    />
+                    <path
+                      d="m54.4,235.6h-23c-11.3,0-20.4,9.1-20.4,20.4 0,11.3 9.1,20.4 20.4,20.4h22.9c11.3,0 20.4-9.1 20.4-20.4 0.1-11.3-9.1-20.4-20.3-20.4z"
+                    />
+                    <path
+                      d="M400.4,82.8L384.1,99c-8,8-8,20.9,0,28.9s20.9,8,28.9,0l16.2-16.2c8-8,8-20.9,0-28.9S408.3,74.8,400.4,82.8z"
+                    />
+                    <path
+                      d="m99,384.1l-16.2,16.2c-8,8-8,20.9 0,28.9 8,8 20.9,8 28.9,0l16.2-16.2c8-8 8-20.9 0-28.9s-20.9-7.9-28.9,0z"
+                    />
+                    <path
+                      d="m413,384.1c-8-8-20.9-8-28.9,0-8,8-8,20.9 0,28.9l16.2,16.2c8,8 20.9,8 28.9,0 8-8 8-20.9 0-28.9l-16.2-16.2z"
+                    />
+                    <path
+                      d="m99,127.9c8,8 20.9,8 28.9,0 8-8 8-20.9 0-28.9l-16.2-16.2c-8-8-20.9-8-28.9,0-8,8-8,20.9 0,28.9l16.2,16.2z"
+                    />
+                  </g>
+                </g>
+              </svg>
+              <svg
+                version="1.1"
+                class="moon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                enable-background="new 0 0 512 512"
+              >
+                <g>
+                  <g>
+                    <path
+                      d="m275.4,500.7c-135,0-244.7-109.8-244.7-244.7 1.06581e-14-134.9 109.8-244.7 244.7-244.7 8.2,0 16.4,0.4 24.6,1.2 7.2,0.7 13.5,5.2 16.5,11.7s2.4,14.2-1.6,20.2c-23,33.8-35.2,73.3-35.2,114.2 0,105 78.7,192.2 183.2,202.6 7.2,0.7 13.5,5.2 16.5,11.7 3.1,6.5 2.4,14.2-1.6,20.2-45.8,67.4-121.4,107.6-202.4,107.6zm-12.5-448c-106.5,6.5-191.2,95.2-191.2,203.3 1.42109e-14,112.3 91.4,203.7 203.7,203.7 56.4,0 109.6-23.4 147.8-63.7-46.2-11.7-88.1-36.8-120.8-72.6-41.1-45.2-63.8-103.6-63.8-164.6 0.1-37.1 8.4-73.2 24.3-106.1z"
+                    />
+                  </g>
+                </g>
+              </svg>
+            </label>
+          </li>
+        </ul>
+        <ul
+          class="navbar-nav nav-sign d-flex justify-content-center align-items-center text-center flex-lg-row-reverse col-xl-4"
+          dir="ltr"
+        >
+        @guest
+        @if (Route::has('login'))
+        <li class="nav-item p-0 col-xl-4 col-12">
+            <a class="nav-link bg-light sign" href="{{ route('login') }}">{{ __('تسجيل الدخول') }}   </a>
+          </li>
+        @endif
+
+        @if (Route::has('register'))
+        <li class="nav-item p-0 me-2 d-xl-flex d-none col-4">
+            <a class="nav-link bg-light sign" href="{{ route('register') }}">{{ __('تسحيل فى الموقع') }} </a>
+          </li>
+        @endif
+    @else
+        <li class="nav-item dropdown">
+            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                {{ Auth::user()->name }}
+            </a>
+
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{{ route('logout') }}"
+                   onclick="event.preventDefault();
+                                 document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+            </div>
+        </li>
+    @endguest
+
+
+        </ul>
+        <a class="brand d-md-flex d-none col-0" href="./index.html">
+          <img src="{{ asset('frontend/images/brand.png') }}" alt="" />
+        </a>
+      </div>
+    </header>
+    <!-- End Header -->
+    <!-- Start Sidebar -->
+    <div class="side-bar drop">
+      <form action="" class="drop">
+        <input
+          class="search-btn form-control drop rounded-0"
+          type="search"
+          name=""
+          id=""
+          placeholder="ابحث عن ..."
+          dir="rtl"
+        />
+      </form>
+      <hr class="mt-3 m-0" />
+      <div class="navbar-nav p-0" dir="rtl">
+
+        <a
+          class="nav-item nav-link w-100 fw-bolder"
+          href="./pages/add-work.html"
+        >
+          <i class="fa-solid fa-plus ms-1"></i>أضف عملك
+        </a>
+        <a
+          class="nav-item nav-link w-100 fw-bolder"
+          href="./pages/search-about-worker.html"
+        >
+          <i class="fa-brands fa-searchengin ms-1"></i>
+          ابحث عن عمال
+        </a>
+        <a
+          class="nav-item nav-link w-100 fw-bolder"
+          href="./pages/browse-business.html"
+        >
+          <i class="fa-solid fa-boxes-stacked ms-1"></i>
+          تصفح الأعمال
+        </a>
+        <li
+          class="nav-item dropdown-menu-sidebar drop pt-4 pb-4 p-3 d-flex justify-content-between align-items-center fw-bold"
+        >
+          <span class="drop">
+            <i class="fa-solid fa-link drop"></i>
+            المساعد</span
+          >
+          <i class="fa-solid fa-angle-left drop"></i>
+        </li>
+        <div class="nav-item-menu p-0">
+          <a
+            class="nav-item nav-link fw-bolder pt-4 pb-4 p-3"
+            href="#"
+            target="_blank"
+            >المساعد للمؤسسات</a
+          >
+          <a
+            class="nav-item nav-link fw-bolder pt-4 pb-4 p-3"
+            href="#"
+            target="_blank"
+            >عن المساعد</a
+          >
+          <a
+            class="nav-item nav-link fw-bolder pt-4 pb-4 p-3"
+            href="#"
+            target="_blank"
+            >الأسئلة الشائعة</a
+          >
+          <a
+            class="nav-item nav-link fw-bolder pt-4 pb-4 p-3"
+            href="#"
+            target="_blank"
+          >
+            ضمان حقوقك</a
+          >
+          <a
+            class="nav-item nav-link fw-bolder pt-4 pb-4 p-3"
+            href="#"
+            target="_blank"
+          >
+            شروط الاستخدام</a
+          >
+          <a
+            class="nav-item nav-link fw-bolder pt-4 pb-4 p-3"
+            href="#"
+            target="_blank"
+            >بيان الخصوصية
+          </a>
+          <a
+            class="nav-item nav-link fw-bolder pt-4 pb-4 p-3"
+            href="#"
+            target="_blank"
+          >
+            مركز المساعدة
+          </a>
+        </div>
+        <li
+          class="nav-item dropdown-menu-follow drop pt-4 pb-4 p-3 d-flex justify-content-between align-items-center fw-bold"
+          dir="rtl"
+        >
+          <span class="drop">
+            <i class="fa-solid fa-hashtag drop"></i>
+            تابعنا</span
+          >
+          <i class="fa-solid fa-angle-left drop"></i>
+        </li>
+        <div class="nav-item-menu p-0">
+          <a
+            class="nav-item nav-link fw-bolder pt-4 pb-4 p-3"
+            href="#"
+            target="_blank"
+          >
+            مدونة المساعد
+          </a>
+          <a
+            class="nav-item nav-link fw-bolder pt-4 pb-4 p-3"
+            href="#"
+            target="_blank"
+          >
+            توتير
+          </a>
+          <a
+            class="nav-item nav-link fw-bolder pt-4 pb-4 p-3"
+            href="#"
+            target="_blank"
+          >
+            فيسبوك
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- End Sidebar -->
+    <!-- Start Landing Page -->
+    <div class="landing d-flex justify-content-center align-items-center">
+      <div class="overlay-opacity-60"></div>
+      <div class="overlay">
+        <img class="landing-img" src="{{ asset('frontend/images/landing.jpg') }}" alt="" />
+      </div>
+      <div class="introduction-text text-light text-center">
+        <h1 class="fw-bold">أنجز أعمالك فى أسرع وقت بسهولة وأمان</h1>
+        <h4 class="mt-3 mb-4 fw-bold">
+          أبحث عن الحرفى الذي تريده لإنجاز أعمالك
+        </h4>
+        <div class="container">
+          <div class="search-wrap">
+            <div class="search-box">
+              <input
+                type="text"
+                class="search-input"
+                placeholder="عنوان المهام التى تريد تنفيذها ...."
+              />
+              <a
+                class="btn btn-common d-flex justify-content-center align-items-center"
+              >
+                ابدأ مهامك الأن
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Landing Page -->
+    <!-- Start How Work -->
+    <div class="how-work pt-3 pb-3">
+      <div class="how-work-head">
+        <div class="container">
+          <div class="row">
+            <div class="work-text text-center mt-4">
+              <h1 class="heading heading-collect">كيف يعمل المساعد؟</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="how-work-body">
+        <div class="container">
+          <div class="row">
+            <div
+              class="d-flex justify-content-around align-items-end flex-column"
+            >
+              <div
+                class="work-text text-center d-flex align-content-center justify-content-end mt-5 mb-3"
+              >
+                <span class="me-2">أضف الأعمال</span>
+                <img src="{{ asset('frontend/images/checked.png') }}" alt="" />
+              </div>
+              <div>
+                <p class="fs-4 fw-bold text-black-50" dir="rtl">
+                  أضف تفاصيل عملك والمهارات المطلوبة لإنجازه وابدأ باستقبال عروض
+                  الساعدين عليه.
+                </p>
+              </div>
+            </div>
+            <div
+              class="d-flex justify-content-around align-items-end flex-column"
+            >
+              <div
+                class="work-text text-center d-flex align-content-center justify-content-end mt-5 mb-3"
+              >
+                <span class="me-2">اختر العرض المناسب</span>
+                <img src="images/checked.png" alt="" />
+              </div>
+              <div>
+                <p class="fs-4 fw-bold text-black-50" dir="rtl">
+                  من بين العروض المقدمة لاعطالك ومهامك، اختر العرض المناسب
+                  لمتطلبات المشروع ثم ابدأ مباشرة مرحلة التنفيذ
+                </p>
+              </div>
+            </div>
+            <div
+              class="d-flex justify-content-around align-items-end flex-column"
+            >
+              <div
+                class="work-text text-center d-flex align-content-center justify-content-end mt-5 mb-3"
+              >
+                <span class="me-2">استلم الأعمال</span>
+                <img src="{{ asset('frontend/images/checked.png') }}" alt="" />
+              </div>
+              <div>
+                <p class="fs-4 fw-bold text-black-50" dir="rtl">
+                  سيعمل المساعد الذى اخترته معك حتى انتهاء العمل وتسليم العمل
+                  بشكل كامل كما أردته.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End How Work -->
+    <!-- Start Why Us -->
+    <div class="why-us" dir="rtl">
+      <div class="container">
+        <div
+          class="row col-12 d-flex justify-content-center align-content-center text-center"
+        >
+          <h1 class="heading">لماذا المساعد؟</h1>
+          <div class="why-box mt-5 col-xl-4 col-lg-5 col-md-6 col-sm-12">
+            <img src="{{ asset('frontend/images/rocket.png') }}" alt="" />
+            <h2 class="mt-5">نفذ مشاريعك بسهولة</h2>
+            <p>اطرح مشروعك واترك مهمة تنفيذه لأفضل خبراء الوطن العربي</p>
+          </div>
+          <div class="why-box mt-5 col-xl-4 col-lg-5 col-md-6 col-sm-12">
+            <img src="{{ asset('frontend/images/like.png') }}" alt="" />
+            <h2 class="mt-5">وظف أفضل الحرفيين</h2>
+            <p>زُر ملفات الحرفيين، اطلع على اعمالهم السابقة وظف الأفضل</p>
+          </div>
+          <div class="why-box mt-5 col-xl-4 col-lg-5 col-md-6 col-sm-12">
+            <img src="{{ asset('frontend/images/payment-method.png') }}" />
+            <h2 class="mt-5">ادفع بكل أريحية</h2>
+            <p>لن تدفع سوى مقابل ما يتم إنجازه من وظائف</p>
+          </div>
+          <div class="why-box mt-5 col-xl-4 col-lg-5 col-md-6 col-sm-12">
+            <img src="{{ asset('frontend/images/group.png') }}" alt="" />
+            <h2 class="mt-5">ابنِ فريق عمل متكامل</h2>
+            <p>خبراء فى مختلف المجالات ومختلف البلدان</p>
+          </div>
+          <div class="why-box mt-5 col-xl-4 col-lg-5 col-md-6 col-sm-12">
+            <img src="{{ asset('frontend/images/support (1).png') }}" alt="" />
+            <h2 class="mt-5">انجز أعمالك بسرعة</h2>
+            <p>اختر أفضل الحرفيين وأرسل له الوظيفة مباشرة مع ضمان كامل حقوقك</p>
+          </div>
+          <div class="why-box mt-5 col-xl-4 col-lg-5 col-md-6 col-sm-12">
+            <img src="{{ asset('frontend/images/low-price.png') }}" alt="" />
+            <h2 class="mt-5">نفذ مشاريعك بتكاليف أقل</h2>
+            <p>وظّف أفضل الخبرات حسبما يتناسب مع مزانيتك</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Why Us -->
+    <!-- Start Sections Helper -->
+    <div class="sections-helper" dir="rtl">
+      <div class="container">
+        <div
+          class="row col-12 d-flex justify-content-center align-content-center text-center"
+        >
+          <h1 class="heading">أقسام المساعد</h1>
+          <div
+            class="sections-helper-box mt-5 col-xl-3 col-lg-4 col-md-6 col-sm-6"
+          >
+            <img class="mb-3" src="{{ asset('frontend/images/carpenter (1).png') }}" alt="" />
+            <h2>نجارة</h2>
+          </div>
+          <div
+            class="sections-helper-box mt-5 col-xl-3 col-lg-4 col-md-6 col-sm-6"
+          >
+            <img class="mb-3" src="{{ asset('frontend/images/plug.png') }}" alt="" />
+            <h2>كهرباء</h2>
+          </div>
+          <div
+            class="sections-helper-box mt-5 col-xl-3 col-lg-4 col-md-6 col-sm-6"
+          >
+            <img class="mb-3" src="{{ asset('frontend/images/painting-brush.png') }}" />
+            <h2>دهان ونقاشة</h2>
+          </div>
+          <div
+            class="sections-helper-box mt-5 col-xl-3 col-lg-4 col-md-6 col-sm-6"
+          >
+            <img class="mb-3" src="{{ asset('frontend/images/air-conditioner.png') }}" alt="" />
+            <h2>تكييف وتبريد</h2>
+          </div>
+          <div
+            class="sections-helper-box mt-5 col-xl-3 col-lg-4 col-md-6 col-sm-6"
+          >
+            <img class="mb-3" src="{{ asset('frontend/images/house-decoration.png') }}" alt="" />
+            <h2>ديكور</h2>
+          </div>
+          <div
+            class="sections-helper-box mt-5 col-xl-3 col-lg-4 col-md-6 col-sm-6"
+          >
+            <img class="mb-3" src="{{ asset('frontend/images/blacksmith.png') }}" alt="" />
+            <h2>حدادة</h2>
+          </div>
+          <div
+            class="sections-helper-box mt-5 col-xl-3 col-lg-4 col-md-6 col-sm-6"
+          >
+            <img class="mb-3" src="{{ asset('frontend/images/brickwall.png') }}" alt="" />
+            <h2>بناء</h2>
+          </div>
+          <div
+            class="sections-helper-box mt-5 col-xl-3 col-lg-4 col-md-6 col-sm-6"
+          >
+            <img class="mb-3" src="{{ asset('frontend/images/plumbering.png') }}" alt="" />
+            <h2>سباكة</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Sections Helper -->
+    <!-- Start Questions -->
+    <div class="questions text-light pt-5 pb-5">
+      <!-- Start Heading -->
+      <div class="questions-head">
+        <div class="container">
+          <div class="row">
+            <div class="questions-text text-center mt-5">
+              <h1 class="heading heading-collect">الأسئلة الشائعة</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Heading -->
+      <!-- Start Body -->
+      <div class="questions-body">
+        <div class="container">
+          <div class="row align-items-center justify-content-center">
+            <div class="question-tap col-md-12 col-11">
+              <div
+                class="question d-flex justify-content-between align-items-center flex-row-reverse"
+              >
+                <p class="title fw-bold">
+                  هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم
+                  توليد هذا النص من مولد النص العربى ؟؟
+                </p>
+                <i class="fa-regular fa-circle-up question-icon"></i>
+              </div>
+              <p class="pra question-pra">
+                .هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم
+                توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا
+                النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى
+                يولدها التطبيق هذا النص هو مثال لنص يمكن أن يستبدل في نفس
+                المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن
+                تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد
+                الحروف التى يولدها التطبيق. هذا النص هو مثال لنص يمكن أن يستبدل
+                في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث
+                يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى
+                زيادة عدد الحروف التى يولدها التطبيق.
+              </p>
+            </div>
+            <div class="question-tap col-md-12 col-11">
+              <div
+                class="question d-flex justify-content-between align-items-center flex-row-reverse"
+              >
+                <p class="title fw-bold">
+                  هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم
+                  توليد هذا النص من مولد النص العربى ؟؟
+                </p>
+                <i class="fa-regular fa-circle-up question-icon"></i>
+              </div>
+              <p class="pra question-pra">
+                .هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم
+                توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا
+                النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى
+                يولدها التطبيق هذا النص هو مثال لنص يمكن أن يستبدل في نفس
+                المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن
+                تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد
+                الحروف التى يولدها التطبيق. هذا النص هو مثال لنص يمكن أن يستبدل
+                في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث
+                يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى
+                زيادة عدد الحروف التى يولدها التطبيق.
+              </p>
+            </div>
+            <div class="question-tap col-md-12 col-11">
+              <div
+                class="question d-flex justify-content-between align-items-center flex-row-reverse"
+              >
+                <p class="title fw-bold">
+                  هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم
+                  توليد هذا النص من مولد النص العربى ؟؟
+                </p>
+                <i class="fa-regular fa-circle-up question-icon"></i>
+              </div>
+              <p class="pra question-pra">
+                .هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم
+                توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا
+                النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى
+                يولدها التطبيق هذا النص هو مثال لنص يمكن أن يستبدل في نفس
+                المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن
+                تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد
+                الحروف التى يولدها التطبيق. هذا النص هو مثال لنص يمكن أن يستبدل
+                في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث
+                يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى
+                زيادة عدد الحروف التى يولدها التطبيق.
+              </p>
+            </div>
+            <div class="question-tap col-md-12 col-11">
+              <div
+                class="question d-flex justify-content-between align-items-center flex-row-reverse"
+              >
+                <p class="title fw-bold">
+                  هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم
+                  توليد هذا النص من مولد النص العربى ؟؟
+                </p>
+                <i class="fa-regular fa-circle-up question-icon"></i>
+              </div>
+              <p class="pra question-pra">
+                .هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم
+                توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا
+                النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى
+                يولدها التطبيق هذا النص هو مثال لنص يمكن أن يستبدل في نفس
+                المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن
+                تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد
+                الحروف التى يولدها التطبيق. هذا النص هو مثال لنص يمكن أن يستبدل
+                في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث
+                يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى
+                زيادة عدد الحروف التى يولدها التطبيق.
+              </p>
+            </div>
+            <div class="question-tap col-md-12 col-11">
+              <div
+                class="question d-flex justify-content-between align-items-center flex-row-reverse"
+              >
+                <p class="title fw-bold">
+                  هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم
+                  توليد هذا النص من مولد النص العربى ؟؟
+                </p>
+                <i class="fa-regular fa-circle-up question-icon"></i>
+              </div>
+              <p class="pra question-pra">
+                .هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم
+                توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا
+                النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى
+                يولدها التطبيق هذا النص هو مثال لنص يمكن أن يستبدل في نفس
+                المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن
+                تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد
+                الحروف التى يولدها التطبيق. هذا النص هو مثال لنص يمكن أن يستبدل
+                في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث
+                يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى
+                زيادة عدد الحروف التى يولدها التطبيق.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Body -->
+    </div>
+    <!-- End Questions -->
+    <!-- Start Project -->
+    <div class="start-project text-light pt-3 pb-3">
+      <div class="start-project-head">
+        <div class="container">
+          <div class="row">
+            <div class="project-text text-center mt-4">
+              <h1 class="heading heading-collect">هل انت جاهز لبدء مشروعك</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="start-project-body">
+        <div class="container">
+          <div class="row">
+            <div
+              class="project-text text-center d-flex justify-content-center mt-5 mb-3"
+            >
+              <a
+                class="start-project-btn sign text-decoration-none btn col-xxl-2 col-xl-3 col-lg-4 col-md-5 col-6"
+                href="#"
+                >ابدأ مهامك</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Project -->
+    <!-- Start Footer -->
+    <footer
+      class="d-flex justify-content-center align-items-center text-center col-12 p-0 pb-xl-0 pb-3"
+      dir="rtl"
+    >
+      <div
+        class="container d-flex flex-xl-row flex-column justify-content-between align-items-center text-light p-0"
+      >
+        <div
+          class="col-xxl-5 col-xl-6 col-lg-7 col-12 d-flex justify-content-between"
+        >
+          <a class="text-decoration-none text-light text-center p-2" href="#"
+            >مركز المساعدة</a
+          >
+          <a class="text-decoration-none text-light text-center p-2" href="#"
+            >سياسة الخصوصية</a
+          >
+          <a class="text-decoration-none text-light text-center p-2" href="#"
+            >شروط الاستخدام</a
+          >
+          <a class="text-decoration-none text-light text-center p-2" href="#"
+            >الاسئلة الشائعة</a
+          >
+        </div>
+        <div class="col-xl-4 col-12 text-center mt-xl-0 mt-3">
+          &copy; 2022 المساعد. جميع الحقوق محفوظة.
+        </div>
+      </div>
+    </footer>
+    <!-- End Footer -->
+    <script src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('frontend/js/all.min.js') }}"></script>
+    <script src="{{ asset('frontend/js/jquery-3.6.1.min.js') }}"></script>
+    <script src="{{ asset('frontend/database/db.js') }}"></script>
+    <script src="{{ asset('frontend/js/main.js') }}"></script>
+
+
+  </body>
+</html>
